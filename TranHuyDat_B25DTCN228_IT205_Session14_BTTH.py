@@ -81,15 +81,16 @@ def delete_student(book):
     for student in book:
         if student['id'] == student_id:
             book.remove(student)
-            print("Thành công: Đã xóa hồ sơ học sinh SV02 khỏi hệ thống!")
+            print("Thành công: Đã xóa hồ sơ học sinh khỏi hệ thống!")
             return
     else:
         print("Không tìm thấy sinh viên")
 
 
 
-while True:
-    choice = input("""\n=== HỆ THỐNG QUẢN LÝ ĐIỂM SỐ ===
+def main():
+    while True:
+        choice = input("""\n=== HỆ THỐNG QUẢN LÝ ĐIỂM SỐ ===
 1. Xem bảng điểm học sinh
 2. Thêm hồ sơ học sinh mới
 3. Cập nhật điểm số
@@ -98,19 +99,24 @@ while True:
 ================================
 Chọn chức năng (1-5): """)
 
-    match choice:
-        case '1':
-            display_grades(grade_book)
+        match choice:
+            case '1':
+                display_grades(grade_book)
 
-        case '2':
-            add_student(grade_book)
-        
-        case '3':
-            update_scores(grade_book)
-        
-        case '4':
-            delete_student(grade_book)
-        
-        case '5':
-            print("Thoát chương trình")
-            break
+            case '2':
+                add_student(grade_book)
+
+            case '3':
+                update_scores(grade_book)
+
+            case '4':
+                delete_student(grade_book)
+
+            case '5':
+                print("Thoát chương trình")
+                break
+
+            case _:
+                print("Chọn sai")
+
+main()
